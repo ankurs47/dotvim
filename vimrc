@@ -128,8 +128,8 @@
 "}}}
 
 " base configuration {{{
-  set timeoutlen=300                                  "mapping timeout
-  set ttimeoutlen=50                                  "keycode timeout
+"  set timeoutlen=300                                  "mapping timeout
+"  set ttimeoutlen=50                                  "keycode timeout
 
   set mouse=a                                         "enable mouse
   set mousehide                                       "hide when characters are typed
@@ -297,6 +297,7 @@
   if count(s:settings.plugin_groups, 'core') "{{{
     NeoBundle 'matchit.zip'
     NeoBundle 'myusuf3/numbers.vim'
+    NeoBundle 'Yggdroot/indentLine'
     NeoBundle 'bling/vim-airline' "{{{
       let g:airline_powerline_fonts = 1
       let g:airline#extensions#tabline#enabled = 1
@@ -528,6 +529,21 @@
     "}}}
     NeoBundleLazy 'majutsushi/tagbar', {'autoload':{'commands':'TagbarToggle'}} "{{{
       nnoremap <silent> <F9> :TagbarToggle<CR>
+      let g:tagbar_type_scala = {
+          \ 'ctagstype' : 'Scala',
+          \ 'kinds'     : [
+              \ 'p:packages:1',
+              \ 'V:values',
+              \ 'v:variables',
+              \ 'T:types',
+              \ 't:traits',
+              \ 'o:objects',
+              \ 'a:aclasses',
+              \ 'c:classes',
+              \ 'r:cclasses',
+              \ 'm:methods'
+              \ ]
+            \ }
     "}}}
   endif "}}}
   if count(s:settings.plugin_groups, 'unite') "{{{
